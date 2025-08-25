@@ -1,7 +1,6 @@
 import numpy as np
 from scipy.interpolate import PchipInterpolator
-from helpers import evalContextVar, speciesFrac
-from CPRSust_metapop_rates import consumersEncounterFactor
+from helpers import evalContextVar
 
 def GillespieStep(context,reactions):
     vec = evalContextVar(['varVec'],context)[0]
