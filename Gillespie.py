@@ -6,9 +6,9 @@ def GillespieStep(context,reactions):
     vec = evalContextVar(['varVec'],context)[0]
     # Choose a process according to their propensities
     reactsRates = [r['probFunc'](*evalContextVar(r['probFuncVars'],context)) for r in reactions]
+    #print('\t\t',reactsRates)
     # Remove the null rates
     positiveReactsRates = [r for r in reactsRates if r > 0]
-    #print('\t\t',reactsRates)
     # Check for absorbing state
     absState = False
     if len(positiveReactsRates)==0:
