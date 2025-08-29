@@ -21,3 +21,11 @@ def speciesFrac(vec,targetState):
 
 def evalContextVar(names, context):
     return [eval(name, {}, context) for name in names]
+
+def stationaryMean(x,y,cut):
+        x = np.array(x)
+        y = np.array(y)
+        idxList = np.where(x > cut)[0]
+        if len(idxList)==0:
+            raise ValueError('No data satisfying the cut-off detected!')
+        return np.mean(y[idxList])
