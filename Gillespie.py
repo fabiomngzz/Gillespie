@@ -6,14 +6,17 @@ from helpers import evalContextVar
 # Inputs:
 #   - context: object of the form {...key: value,...}
 #       it stores the parameter values and the variables of the model
-#   - reactions: reactions: object of the form 
-#       { 
-#         'description': str (simple description of the process; not functional), 
-#         'probFunc': function,
-#         'probFuncVars': list of strings corresponding to the names of the arguments of the probability function; notice that these are found in the context!
-#         'oldState': list of strings specifying the starting state(s) of the process; needed to get the subset of nodes that can undergo the update
-#         'oldState': list of strings specifying the final state(s) of the process
-#       }
+#   - reactions: object of the form 
+#       [...,
+#         { 
+#           'description': str (simple description of the process; not functional), 
+#           'probFunc': function,
+#           'probFuncVars': list of strings corresponding to the names of the arguments of the probability function; notice that these are found in the context!
+#           'oldState': list of strings specifying the starting state(s) of the process; needed to get the subset of nodes that can undergo the update
+#           'oldState': list of strings specifying the final state(s) of the process
+#         },
+#        ...
+#        ]
 # 
 # Algorithm: 
 #   1. Get the vector storing the state of each node of the system
